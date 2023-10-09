@@ -1,8 +1,17 @@
 package fr.diginamic.banque.entites;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class TestBanque {
     public static void main(String[] args) {
-        Compte account = new Compte(3735657893L, "8368 euros");
-        System.out.print(account);
+        Compte parentAccount = new Compte(3735657893L, "8368 euros");
+        CompteTaux childAccount = new CompteTaux(1837456354, "973 euros", 15.25);
+
+        Compte[] accounts = {parentAccount, childAccount};
+
+        for (Compte account : accounts) {
+            System.out.println(account);
+        }
     }
 }
