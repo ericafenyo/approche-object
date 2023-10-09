@@ -4,7 +4,7 @@ public class CompteTaux extends Compte{
 
     private double interestRate;
 
-    public CompteTaux(long accountNumber, String balance, double interestRate) {
+    public CompteTaux(long accountNumber, double balance, double interestRate) {
         super(accountNumber, balance);
         this.interestRate = interestRate;
     }

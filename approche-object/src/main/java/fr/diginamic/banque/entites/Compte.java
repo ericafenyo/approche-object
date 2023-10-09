@@ -2,9 +2,9 @@ package fr.diginamic.banque.entites;
 
 public class Compte {
     private long accountNumber;
-    private String balance;
+    private double balance;
 
-    public Compte(long accountNumber, String balance) {
+    public Compte(long accountNumber, double balance) {
         this.accountNumber = accountNumber;
         this.balance = balance;
     }
@@ -13,8 +13,13 @@ public class Compte {
         return accountNumber;
     }
 
-    public String getBalance() {
+    public double getBalance() {
         return balance;
+    }
+
+    public Compte setBalance(double balance) {
+        this.balance = balance;
+        return this;
     }
 
     @Override
