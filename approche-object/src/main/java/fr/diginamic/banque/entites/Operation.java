@@ -12,4 +12,9 @@ public abstract class Operation {
     }
 
     abstract String getType();
+
+    @Override
+    public String toString() {
+        return String.format("Operation type: %s, Date: %s, Amount: -£%.2f", getType(), date, amount);
+    }
 }

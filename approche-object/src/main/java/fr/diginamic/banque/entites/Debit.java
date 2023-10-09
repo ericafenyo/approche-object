@@ -10,9 +10,4 @@ public class Debit extends Operation {
     String getType() {
         return "DEBIT";
     }
-
-    @Override
-    public String toString() {
-        return String.format("Operation type: %s, Date: %s, Amount: +£%.2f", getType(), date, amount);
-    }
 }
