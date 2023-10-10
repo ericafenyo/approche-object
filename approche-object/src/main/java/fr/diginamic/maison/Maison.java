@@ -44,7 +44,7 @@ public class Maison {
         return sum;
     }
 
-    public double getSurfaceByType(Class<?> type) {
+    public double getSurfaceByType(Class<? extends Piece> type) {
         double sum = 0.0;
         for (Piece piece : array) {
             if (piece.getClass().getSimpleName().equals(type.getSimpleName())) {
@@ -56,7 +56,7 @@ public class Maison {
     }
 
 
-    public int getTypeCount(Class<?> type) {
+    public int getTypeCount(Class<? extends Piece> type) {
         int count = 0;
         for (Piece piece : array) {
             if (piece.getClass().getSimpleName().equals(type.getSimpleName())) {
