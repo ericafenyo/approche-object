@@ -60,6 +60,14 @@ public class ArraysUtils {
         return sum;
     }
 
+    public static double sum(double[] array) {
+        double sum = 0;
+        for (double element : array) {
+            sum += element;
+        }
+        return sum;
+    }
+
     public static int indexOf(int[] array, int element) {
         List<Integer> accumulator = Arrays.stream(array).boxed().toList();
         return accumulator.indexOf(element);
