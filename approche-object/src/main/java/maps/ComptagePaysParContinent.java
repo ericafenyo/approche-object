@@ -17,7 +17,7 @@ public class ComptagePaysParContinent {
 
     HashMap<String, Integer> accumulator = new HashMap<>();
     for (Pays country : countries) {
-      int value = accumulator.get(country.getContinent()) == null ? 0 : accumulator.get(country.getContinent());
+      int value = accumulator.getOrDefault(country.getContinent(), 0);
       value = value + 1;
       accumulator.put(country.getContinent(), value);
     }
