@@ -33,7 +33,7 @@ public class MostPopulousCitiesPerDepartmentCommand implements Command {
   private void handleChoice(String code, List<City> cities) {
     List<City> sorted = cities.stream()
         .filter(city -> city.department().equals(code))
-        .sorted(Comparator.comparing(city -> city.population()))
+        .sorted((current, upcoming) -> upcoming.population().compareTo(current.population()))
         .limit(10)
         .toList();
 

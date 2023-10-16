@@ -33,7 +33,7 @@ public class MostPopulousRegionsCommand implements Command {
     accumulator.forEach((key, value) -> entries.add(new SimpleEntry<>(key, accumulator.get(key))));
 
     var sorted = entries.stream()
-        .sorted(Map.Entry.comparingByValue())
+        .sorted((current, upcoming) -> upcoming.getValue().compareTo(current.getValue()))
         .limit(10).map(entry -> entry.getKey())
         .toList();
 

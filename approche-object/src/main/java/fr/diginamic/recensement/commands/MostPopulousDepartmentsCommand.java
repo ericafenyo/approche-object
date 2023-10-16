@@ -36,7 +36,7 @@ public class MostPopulousDepartmentsCommand implements Command {
     accumulator.forEach((key, value) -> entries.add(new SimpleEntry<>(key, accumulator.get(key))));
 
     var sorted = entries.stream()
-        .sorted((current, next) -> current.getValue().compareTo(next.getValue()))
+        .sorted((current, upcoming) -> upcoming.getValue().compareTo(current.getValue()))
         .limit(10)
         .map(entry -> entry.getKey())
         .toList();

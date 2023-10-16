@@ -42,7 +42,7 @@ public class MostPopulousCitiesPerRegionCommand implements Command {
   private void withName(String name, List<City> cities) {
     List<City> sorted = cities.stream()
         .filter(city -> city.region().name().equals(name))
-        .sorted(Comparator.comparing(city -> city.population()))
+        .sorted((current, upcoming) -> upcoming.population().compareTo(current.population()))
         .limit(10)
         .toList();
 
@@ -61,7 +61,7 @@ public class MostPopulousCitiesPerRegionCommand implements Command {
   private void withCode(int code, List<City> cities) {
     List<City> sorted = cities.stream()
         .filter(city -> city.region().code() == code)
-        .sorted(Comparator.comparing(city -> city.population()))
+        .sorted((current, upcoming) -> upcoming.population().compareTo(current.population()))
         .limit(10)
         .toList();
 

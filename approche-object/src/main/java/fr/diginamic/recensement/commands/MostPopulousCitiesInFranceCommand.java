@@ -25,7 +25,7 @@ public class MostPopulousCitiesInFranceCommand implements Command {
 
   private void execute(List<City> cities) {
     List<City> sorted = cities.stream()
-        .sorted(Comparator.comparing(city -> city.population()))
+        .sorted((current, upcoming) -> upcoming.population().compareTo(current.population()))
         .limit(10)
         .toList();
 
