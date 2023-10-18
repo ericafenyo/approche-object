@@ -1,6 +1,7 @@
 package fr.diginamic.recensement.commands;
 
 import fr.diginamic.recensement.Census;
+import fr.diginamic.recensement.exceptions.NotFoundException;
 import fr.diginamic.recensement.models.City;
 import fr.diginamic.recensement.util.Preconditions;
 
@@ -47,7 +48,7 @@ public class MostPopulousCitiesPerRegionCommand implements Command {
         .toList();
 
     if (sorted.isEmpty()) {
-      System.out.println("Region name is not supported, try again");
+      throw new NotFoundException("Region name is not supported, try again");
     }
 
     System.out.printf("The 10 most populous cities in the region with name: %s%n", name);

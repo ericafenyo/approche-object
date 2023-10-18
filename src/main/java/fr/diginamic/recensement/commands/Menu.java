@@ -15,7 +15,7 @@ public class Menu {
   private Menu() {
   }
 
-  public static void displayOptions() {
+  public static void displayOptions() throws RuntimeException {
     System.out.println("Select an option by entering a corresponding number:");
     Scanner scanner = new Scanner(System.in);
     Census census = Census.create();
@@ -43,7 +43,7 @@ public class Menu {
     commands.put(1, new CityPopulationCommand(census, scanner));
     commands.put(2, new DepartmentPopulationCommand(census, scanner));
     commands.put(3, new RegionPopulationCommand(census, scanner));
-    commands.put(4, new MostPopulousRegionsCommand(census));
+    commands.put(4, new DepartmentPopulationRangeCommand(census, scanner));
     commands.put(5, new MostPopulousDepartmentsCommand(census));
     commands.put(6, new MostPopulousCitiesPerDepartmentCommand(census, scanner));
     commands.put(7, new MostPopulousCitiesPerRegionCommand(census, scanner));

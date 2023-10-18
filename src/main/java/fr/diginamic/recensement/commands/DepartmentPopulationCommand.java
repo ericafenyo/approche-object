@@ -1,6 +1,7 @@
 package fr.diginamic.recensement.commands;
 
 import fr.diginamic.recensement.Census;
+import fr.diginamic.recensement.exceptions.NotFoundException;
 import fr.diginamic.recensement.models.City;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class DepartmentPopulationCommand implements Command {
   }
 
   @Override
-  public void execute() {
+  public void execute() throws NotFoundException{
     System.out.println("-----------------------------------------");
     System.out.println("2. Display the population of a department");
     System.out.println("-----------------------------------------");
@@ -34,11 +35,11 @@ public class DepartmentPopulationCommand implements Command {
         .filter(city -> city.department().equals(code))
         .findFirst();
 
-    if (result.isPresent()) {
-      System.out.printf("The population of the department with code %s:%n", code);
-      System.out.println(result.get().population());
-    } else {
-      System.out.println("Department cannot be found, try again");
+    if (result.isEmpty()) {
+      throw new NotFoundException("Department not found, try again");
     }
+
+    System.out.printf("The population of the department with code %s:%n", code);
+    System.out.println(result.get().population());
   }
 }

@@ -1,6 +1,7 @@
 package fr.diginamic.recensement.commands;
 
 import fr.diginamic.recensement.Census;
+import fr.diginamic.recensement.exceptions.NotFoundException;
 import fr.diginamic.recensement.models.City;
 
 import java.util.Comparator;
@@ -36,6 +37,10 @@ public class MostPopulousCitiesPerDepartmentCommand implements Command {
         .sorted((current, upcoming) -> upcoming.population().compareTo(current.population()))
         .limit(10)
         .toList();
+
+    if (sorted.isEmpty()) {
+      throw new NotFoundException();
+    }
 
     if (sorted.isEmpty()) {
       System.out.println("Department code is not supported, try again");

@@ -33,9 +33,9 @@ public class RegionPopulationCommand implements Command {
 
   private void execute(String input, List<City> cities) {
     if (Preconditions.isInteger(input)) {
-      withCode(Integer.parseInt(input), census.getCities());
+      withCode(Integer.parseInt(input), cities);
     } else {
-      withName(input, census.getCities());
+      withName(input, cities);
     }
   }
 
