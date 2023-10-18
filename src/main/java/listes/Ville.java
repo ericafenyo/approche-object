@@ -5,10 +5,17 @@ import java.util.Objects;
 public class Ville {
   private String name;
   private Long population;
+  private Continent continent;
 
   public Ville(String name, Long population) {
     this.name = name;
     this.population = population;
+  }
+
+  public Ville(String name, Long population, Continent continent) {
+    this.name = name;
+    this.population = population;
+    this.continent = continent;
   }
 
   public String getName() {
@@ -27,16 +34,20 @@ public class Ville {
     this.population = population;
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    Ville ville = (Ville) o;
-    return Objects.equals(name, ville.name) && Objects.equals(population, ville.population);
+  public Continent getContinent() {
+    return continent;
+  }
+
+  public void setContinent(Continent continent) {
+    this.continent = continent;
   }
 
   @Override
-  public int hashCode() {
-    return Objects.hash(name, population);
+  public String toString() {
+    return "Ville = [" +
+        "name='" + name + '\'' +
+        ", population=" + population +
+        ", continent=" + continent +
+        ']';
   }
 }
